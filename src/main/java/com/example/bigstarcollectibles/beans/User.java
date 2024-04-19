@@ -9,6 +9,7 @@ import java.util.Date;
 
 @Entity
 public class User {
+
     @Id
     private Integer id;
 
@@ -22,16 +23,15 @@ public class User {
 
     @NotEmpty(message = "Gender cannot be empty")
     private String gender;
-
     private String message;
-
-    private Boolean newsletter;
+    private boolean newsLetter;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @NotNull(message = "Date of Birth cannot be empty")
+    @NotNull(message = "Date of birth cannot be empty")
     @Past(message = "Date of birth cannot be a future date")
     private Date dateOfBirth;
 
+    @NotEmpty(message = "Select atleast one favorite character")
     private String favoriteCollection;
 
     public Integer getId() {
@@ -74,12 +74,12 @@ public class User {
         this.message = message;
     }
 
-    public Boolean getNewsletter() {
-        return newsletter;
+    public boolean isNewsLetter() {
+        return newsLetter;
     }
 
-    public void setNewsletter(Boolean newsletter) {
-        this.newsletter = newsletter;
+    public void setNewsLetter(boolean newsLetter) {
+        this.newsLetter = newsLetter;
     }
 
     public Date getDateOfBirth() {
